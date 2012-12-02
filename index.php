@@ -14,7 +14,9 @@ require_once "inc/comments.inc.php";
 </head>
 <body>
     <div id="container">
-        <p style="text-align: center;"><a href="admin.php">admin</a> | <a href="archive.php">archive</a></p>
+        <?php include "header.php"; ?>
+        <div id="bar"><a href="admin.php">admin</a> | <a href="archive.php">archive</a></div>
+        <div id="content">
         <!-- SCRIPT GENERATRED -->
 
 <?php
@@ -27,7 +29,7 @@ require_once "inc/comments.inc.php";
             $res = mysqli_query($db, "SELECT * FROM entry ORDER BY datetime DESC;");
             $i = 0;
             if (!$entries) {
-                echo "NO ENTRIES YET!";
+                echo "<p>Sorry, no content on this blog yet. Maybe come back another time</p>";
             }
             while (($i < 10) && ($i < $entries)) {
                 $entry = mysqli_fetch_assoc($res);
@@ -55,10 +57,11 @@ require_once "inc/comments.inc.php";
                 $i++;
             }
             if($entries > 10) {
-                echo "<p style=\"text-align:center;\"><a href=\"http://10.0.0.2/blog/archive.php\">For older posts click here.</a></p><hr />\n";
+                echo "<p style=\"text-align:center;\"><a href=\"archive.php\">For older posts click here.</a></p><hr />\n";
             }
 ?>
-<?php include "footer.php"; ?>
+        </div>
+        <?php include "footer.php"; ?>
 
         <!-- SCRIPT GENERATRED END -->
     </div>

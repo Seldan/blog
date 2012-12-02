@@ -14,6 +14,9 @@
 </head>
 <body>
     <div id="container">
+        <?php include "header.php"; ?>
+        <div id="bar"><a href="admin.php">admin</a> | <a href="index.php">index</a></div>
+        <div id="content">
 <?php
     //connect Mysql
     $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
@@ -52,6 +55,7 @@
         <a href="index.php">Go back</a>
     </p>
     <hr />
+    </div>
     <?php include "footer.php"; ?>
 </div>
 </body>

@@ -31,7 +31,7 @@ if(array_pop($p) == 'comment.php') {
         exit();
     }
     $content = nl2br(htmlentities($_POST["content"], ENT_HTML5));
-    if (strlen($content) > 3500) {
+    if (mb_strlen($content, 'UTF8') > 3500) {
         echo "It said: \"comment this post:\" not \"Write a book about it.\"\n<br />Anyways, maximum comment length exceeded.";
         exit();
     }

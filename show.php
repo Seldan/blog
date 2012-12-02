@@ -28,6 +28,9 @@ if(!empty($_GET["id"])) {
 </head>
 <body>
     <div id="container">
+        <?php include "header.php"; ?>
+        <div id="bar"><a href="admin.php">admin</a> | <a href="archive.php">archive</a></div>
+        <div id="content">
         <?php
             if(isset($id)) {
                 //print post
@@ -71,6 +74,7 @@ if(!empty($_GET["id"])) {
                 echo "<p>Please specify a post ID!</p>";
             }
         ?>
+        </div>
         <?php include "footer.php"; ?>
     </div>
 

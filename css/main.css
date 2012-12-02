@@ -12,7 +12,23 @@ html {
 
 #container {
     width: 768px;
-    margin: 20px auto;
+    margin: 0px auto;
+}
+
+
+#header {
+    width: 100%;
+}
+
+
+#bar {
+    width: 100%;
+    margin: 20px 0 5px 0;
+    text-align: center;
+}
+
+#content {
+    width: 100%;
 }
 
 
