@@ -8,7 +8,7 @@
     $db_db      = "blog";
 
     /*administration/security*/
-    $password   = ""; //65536 times md5 hashed!
+    $password   = "441b1855befcab976192485a9ff9f1d8"; //65536 times md5 hashed!
 
     /*Version*/
     $codename   = "Reimu";
