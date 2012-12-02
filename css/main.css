@@ -1,0 +1,27 @@
+/*this is the primary CSS*/
+
+html {
+    overflow-y: scroll;
+}
+
+
+#body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+#container {
+    width: 768px;
+    margin: 20px auto;
+}
+
+
+#footer {
+    width: 100%;
+    text-align: center;
+}
+
+
+.comment {
+    background-color: #dddddd;
+}
