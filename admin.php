@@ -4,7 +4,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Panel</title>
+    <title>Control Panel</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link rel="stylesheet" type="text/css" href="css/scrollbars.css" />
@@ -12,13 +13,11 @@ session_start();
 <body>
     <div id="container">
         <?php
-if (empty($_SESSION['uid'])) {
-    exit("<p>Access denied</p>");
-} else {
-    echo "Welcome to Admin Panel!\n<br />";
+{
+    echo "Welcome to the Control Panel!\n<br />";
         # Links here.
         echo "Some actions: ";
-        echo "<a href=?action=post>post</a> <a href=?action=stats>stats</a> <a href=?action=acltools>ACLtools</a> <a href=?action=debug>debug</a>";
+        echo "<a href=?action=post>post</a> <a href=?action=stats>stats</a> <a href=?action=debug>debug</a>";
         echo "\n<br />";
         if(!empty($_GET['action'])) {
             $action = $_GET['action'];
@@ -32,10 +31,6 @@ switch ($action) {
         break;
     case 'stats':
         require "stats.php";
-        break;
-    case 'acltools':
-        echo "Work in progress!";
-        require "acltools.php";
         break;
     case 'debug':
         echo "Work in progress!";

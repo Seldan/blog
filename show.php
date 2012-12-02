@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "conf/main.conf.php";
-require_once "inc/functions.inc.php";
 require_once "inc/comments.inc.php";
 
 //making sure title is set in every case
@@ -12,7 +11,7 @@ if(!empty($_GET["id"])) {
     //connect Mysql
     $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
     //get post resource
-    $res = mysqli_query($db, "SELECT * FROM $db_table_entry WHERE id = $id;");
+    $res = mysqli_query($db, "SELECT * FROM entry WHERE id = $id;");
     $entry = mysqli_fetch_assoc($res);
     //set title
     $title = $entry["title"];
@@ -50,8 +49,12 @@ if(!empty($_GET["id"])) {
                     $comment = mysqli_fetch_assoc($res);
                     echo "<div class=\"comment\">";
                     echo "name: ".$comment["name"]."<br />";
-                    echo "mail: <a href=mailto:".$comment["mail"].">".$comment["mail"]."</a>"." ";
-                    echo "www: <a href='".$comment["www"]."'>".$comment["www"]."</a><br />";
+                    if (!empty($comment["mail"])) {
+                        echo "mail: <a href=mailto:".$comment["mail"].">".$comment["mail"]."</a>"." ";
+                    }
+                    if (!empty($comment["www"])) {
+                        echo "www: <a href='".$comment["www"]."'>".$comment["www"]."</a><br />";
+                    }
                     echo "<p>".$comment["content"]."</p>";
                     echo "</div>";
                 }
