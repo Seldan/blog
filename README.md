@@ -4,7 +4,6 @@ Seldan's Blog Software
 ## About ##
 
 Seldan's Blog Software or short just blog is a simple blogging software.
-It also has an api in development.
 
 ## Prerequisites ##
 
@@ -18,10 +17,10 @@ It also has an api in development.
 at first edit the `conf/main.conf.php` configuration file and then add fortunes to `conf/fortune.conf.php`.
 
 ### 2. database ###
-dump the empty DB with the install scripts in `INSTALL`
+dump the empty DB with the install scripts in `INSTALL`.
 
 ### 3. finish ###
-delete the `INSTALL` folder and the test scripts
+delete the `INSTALL` folder.
 
 ### 4. have fun! ###
 
