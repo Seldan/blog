@@ -15,7 +15,7 @@ session_start();
         <?php include "header.php"; ?>
         <?php
 if (!empty($_SESSION["admin"])){
-        echo "<a href=?action=post>post</a> <a href=?action=stats>stats</a> <a href=?action=debug>debug</a>";
+        echo "<div id=\"bar\"><a href=?action=post>post</a> | <a href=?action=stats>stats</a> | <a href=?action=debug>debug</a> | <a href=?action=logout>logout</a></div>";
         echo "\n<br />";
         if(!empty($_GET['action'])) {
             $action = $_GET['action'];
@@ -40,6 +40,7 @@ if (!empty($_SESSION["admin"])){
             break;
         case 'logout':
             session_destroy();
+            echo "logout successful! <a href=admin.php>Click here to leave the Control Panel</a>.";
             break;
         default:
             echo "Sorry, there is such action!";
@@ -55,11 +56,12 @@ if (!empty($_SESSION["admin"])){
         }
         if($input_pw == $password) { //grant access
             $_SESSION["admin"] = 1;
+            echo "login successful! <a href=admin.php>Click here to enter the Control Panel</a>.";
         } else { //wrong password
             echo "access denied!";
         }
     } else { //show login form
-        echo "no login form yet, just post you password";
+        echo "Password: <form method=\"post\"><input type=password name=\"password\" /> <input type=submit />";
     }
 }
         ?>
