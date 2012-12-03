@@ -12,8 +12,8 @@
 
     /*Version*/
     $codename   = "Reimu";
-    $version    = "0.9.0";
-    $release    = "alpha";
+    $version    = "0.9.3";
+    $release    = "beta";
 
     /*Your personal configs here*/
     $site_name      = "Seldan's Blog";

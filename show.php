@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "conf/main.conf.php";
 require_once "inc/comments.inc.php";
 

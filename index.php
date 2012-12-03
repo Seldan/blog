@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "conf/main.conf.php";
 require_once "inc/comments.inc.php";
 ?>
@@ -29,7 +28,7 @@ require_once "inc/comments.inc.php";
             $res = mysqli_query($db, "SELECT * FROM entry ORDER BY datetime DESC;");
             $i = 0;
             if (!$entries) {
-                echo "<p>Sorry, no content on this blog yet. Maybe come back another time</p>";
+                echo "<p>Sorry, no content on this blog yet. Maybe come back another time.</p>";
             }
             while (($i < 10) && ($i < $entries)) {
                 $entry = mysqli_fetch_assoc($res);
