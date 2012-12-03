@@ -63,7 +63,7 @@ if(!empty($_GET["id"])) {
                 }
                 if (!$cc) {
                     echo "<div class=\"comment\">";
-                    echo"no comments<br />";
+                    echo "no comments<br />";
                     echo "</div>";
                 }
                 echo "<br />comment to this post:";
