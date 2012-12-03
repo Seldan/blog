@@ -51,7 +51,7 @@ if(!empty($_GET["id"])) {
                 for ($i=0; $i < $cc; $i++) {
                     $comment = mysqli_fetch_assoc($res);
                     echo "<div class=\"comment\">";
-                    echo "name: ".$comment["name"]."<div style=\"text-align:right;\">id:".$comment["id"]."</div>"."<br />";
+                    echo "name: ".$comment["name"]."<div style=\"float:right;\">id:".$comment["id"]."</div>"."<br />";
                     if (!empty($comment["mail"])) {
                         echo "mail: <a href=mailto:".$comment["mail"].">".$comment["mail"]."</a>"." ";
                     }
