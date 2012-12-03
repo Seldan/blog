@@ -55,7 +55,6 @@ if (!empty($_SESSION["admin"])) {
             require "stats.php";
             break;
         case 'debug':
-            echo "Work in progress!";
             require "debug.php";
             break;
         case 'removedeadcomments':
