@@ -27,7 +27,7 @@
     $res = mysqli_query($db, "SELECT * FROM entry ORDER BY datetime DESC;");
     $i = 0;
     if (!$entries) {
-        echo "NO ENTRIES YET!";
+        echo "<p>Sorry, no content on this blog yet. Maybe come back another time.</p><hr />";
     }
     while ($i < $entries) {
         $entry = mysqli_fetch_assoc($res);
