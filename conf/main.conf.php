@@ -12,7 +12,7 @@
 
     /*Version*/
     $codename   = "Reimu";
-    $version    = "0.2.0";
+    $version    = "0.9.0";
     $release    = "alpha";
 
     /*Your personal configs here*/
