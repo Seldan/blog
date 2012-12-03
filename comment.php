@@ -23,9 +23,6 @@ if(array_pop($p) == 'comment.php') {
     if (empty($name)) {
         $name = "Anonymous";
     }
-    /*$www = htmlentities($_POST["www"], ENT_HTML5);
-    $mail = htmlentities($_POST["mail"], ENT_HTML5);
-    */
     $www = strip_tags($_POST["www"]);
     $mail = strip_tags($_POST["mail"]);
     if (empty($_POST["content"])) {
@@ -52,9 +49,9 @@ if (empty($id)) {
     exit();
 }
 echo "<form method='POST' action='comment.php'><input name='pid' value='$id' type='hidden' /><br />\n";
-echo "<input type=text name='name' placeholder='name' /> ";
+echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name='name' placeholder='name' /> ";
 echo "<input type=email name='mail' placeholder='mail' /> ";
-echo "<input type=url name='www' placeholder='www' /> <input name=login type=submit class=\"btn btn-inverse\" value=\"Post\"<br />";
+echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
 echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea><br />";
 
 ?>
