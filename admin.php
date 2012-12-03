@@ -26,7 +26,7 @@ session_start();
 <body>
     <div id="container">
         <?php include "header.php"; 
-        echo "<div id=\"bar\"><a href=?action=post>post</a> | <a href=?action=managecomments>comments</a> | <a href=?action=manageposts>posts</a> | <a href=?action=stats>stats</a></div>";
+        echo "<div id=\"bar\"><a href='?action=post'>post</a> | <a href='?action=managecomments'>comments</a> | <a href='?action=manageposts'>posts</a> | <a href='?action=stats'>stats</a></div>";
         echo "\n<br />";
 if (empty($_SESSION["admin"])){ //not authenticated, ask for password
     if(isset($_POST["password"])) { //password typed in, check it
@@ -71,7 +71,7 @@ if (!empty($_SESSION["admin"])) {
             echo "Sorry, there is such action!";
             break;
     } 
-    echo '<a style="float: right;" href=?action=logout>logout</a>';
+    echo '<a style="float: right;" href=\'?action=logout\'>logout</a>';
 }
         ?>
 
