@@ -30,7 +30,7 @@ require_once "conf/main.conf.php";
             $datetime = $date." ".$time;
             $content = nl2br($_POST["content"]);
             $done = mysqli_query($db, 
-                "INSERT INTO $db_table_entry (id, name, datetime, title, content)
+                "INSERT INTO entry (id, name, datetime, title, content)
                  VALUES ('', '$name', '$datetime', '$title', '$content');"
             );
             if ($done != FALSE) {
