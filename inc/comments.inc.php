@@ -18,6 +18,8 @@ function get_dead_comments() {
     /*get all comment IDs and their PIDs*/
     $sql = "SELECT id, pid FROM comment";
     $res = mysqli_query($db, $sql);
+    $commentids = array();
+    $commentpids = array();
     for ($i = 0; $comment = mysqli_fetch_assoc($res); $i++) {
         $commentids[$i] = $comment['id'];
         $commentpids[$i] = $comment['pid'];
