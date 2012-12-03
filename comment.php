@@ -23,8 +23,11 @@ if(array_pop($p) == 'comment.php') {
     if (empty($name)) {
         $name = "Anonymous";
     }
-    $www = htmlentities($_POST["www"], ENT_HTML5);
+    /*$www = htmlentities($_POST["www"], ENT_HTML5);
     $mail = htmlentities($_POST["mail"], ENT_HTML5);
+    */
+    $www = strip_tags($_POST["www"]);
+    $mail = strip_tags($_POST["mail"]);
     if (empty($_POST["content"])) {
         echo "please enter a comment.";
         exit();
