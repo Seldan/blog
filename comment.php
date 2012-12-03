@@ -1,6 +1,5 @@
 <?php
 require_once "conf/main.conf.php";
-require_once "inc/functions.inc.php";
 require_once "inc/comments.inc.php";
 
 if (empty($_SERVER['HTTP_REFERER'])) {
