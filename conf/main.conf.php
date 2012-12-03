@@ -17,11 +17,11 @@
 
     /*Your personal configs here*/
     $site_name      = "Seldan's Blog";
-    $site_url       = "http://seldan.de/blog";
+    $site_url       = "http://10.0.0.2/blog";
 
     /*header settings*/
-    $show_header = 1;
-    $header_url = "/img/header.jpg";
+    $show_header = 0;
+    $header_url  = "img/header.jpg";
 
     /*enable fortunes*/
     $show_fortunes = 0;
