@@ -37,7 +37,7 @@ require_once "inc/comments.inc.php";
                 echo "From: ".$entry["name"];
                 echo "<br />\n";
                 echo "Date: ".$entry["datetime"];
-                echo "<br />\n";
+                echo "<br />\n<br />\n";
                 if (mb_strlen($entry["content"], 'UTF8') <= 1200) {
                     echo $entry["content"];
                 } else {

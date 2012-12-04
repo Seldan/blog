@@ -36,7 +36,7 @@
             echo "From: ".$entry["name"];
             echo "<br />\n";
             echo "Date: ".$entry["datetime"];
-            echo "<br />\n";
+            echo "<br />\n<br />\n";
             echo $entry["content"];
             echo "\n</p>\n";
             $comments = get_comment_count($entry["id"]);
