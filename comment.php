@@ -2,10 +2,12 @@
 require_once "conf/main.conf.php";
 require_once "inc/comments.inc.php";
 
-if (empty($_SERVER['HTTP_REFERER'])) {
-    echo "You need to enable the transfer of a referer for the comment funcion to work, sorry.";
-    exit();
-}
+if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
+echo "<form method='POST' action='comment.php'><input name='pid' value='$id' type='hidden' /><br />\n";
+echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name='name' placeholder='name' /> ";
+echo "<input type=email name='mail' placeholder='mail' /> ";
+echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
+echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea></form><br />";
 
 $p = explode("/", $_SERVER['SCRIPT_FILENAME']);
 if(array_pop($p) == 'comment.php') {
@@ -16,7 +18,7 @@ if(array_pop($p) == 'comment.php') {
     /*VALIDATE IF THERE IS A POST WITH THIS ID*/
     $res = mysqli_query($db, "SELECT * FROM entry WHERE id=$pid");
     if(mysqli_num_rows($res) != 1) {
-        exit("You cant comment something not even existing... lol");
+        exit("Sorry, you cannot comment something not even existing.");
     }
     $datetime = date('Y-m-d H:i:s', time());
     $name = htmlentities($_POST["name"], ENT_HTML5);
@@ -35,23 +37,18 @@ if(array_pop($p) == 'comment.php') {
         exit();
     }
     /*post comment to DB*/
-    $res = mysqli_query($db, "INSERT INTO comment (id,pid,datetime,name,www,mail,content) VALUES ('','$pid','$datetime','$name','$www','$mail','$content');");
+    $res = mysqli_query($db, "INSERT INTO comment (id,pid,datetime,name,www,mail,content) 
+        VALUES ('','$pid','$datetime','$name','$www','$mail','$content');");
     if ($res == 0) {
-        echo "Fatality! Comment got killed by an Error!".mysqli_error($db);
+        echo "Sorry, an error occured while posting your comment.";
     } else {
+        if (empty($_SERVER['HTTP_REFERER'])) {
+            echo "You did not transfer a referer, please go back manually.";
+            exit();
+        }
         header ('HTTP/1.1 307 Temporary Redirect');
         header ('Location: '.$_SERVER['HTTP_REFERER']);
         /*echo "posted comment";*/
     }
 }
-
-if (empty($id)) {
-    exit();
-}
-echo "<form method='POST' action='comment.php'><input name='pid' value='$id' type='hidden' /><br />\n";
-echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name='name' placeholder='name' /> ";
-echo "<input type=email name='mail' placeholder='mail' /> ";
-echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
-echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea><br />";
-
 ?>
