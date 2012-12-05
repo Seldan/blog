@@ -7,9 +7,11 @@
         $sql = "DELETE FROM entry WHERE id=".(int)$_POST["id"].";";
         $err = mysqli_query($db, $sql);
         if ($err == 0) {
-            echo "Error deleting post";
+            echo "An error occured deleting the specified post.";
+        } else if (mysqli_affected_rows($db) == 0) {
+            echo "Could not find a post with this ID.";
         } else {
-            echo "post deleted";
+            echo "Post deleted.";
         }
     }   
 ?>

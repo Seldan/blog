@@ -7,9 +7,11 @@
         $sql = "DELETE FROM comment WHERE id=".(int)$_POST["id"].";";
         $err = mysqli_query($db, $sql);
         if ($err == 0) {
-            echo "Error deleting comment";
+            echo "An error occured deleting the specified comment.";
+        } else if (mysqli_affected_rows($db) == 0) {
+            echo "Could not find a comment with this ID.";
         } else {
-            echo "comment deleted";
+            echo "Comment deleted.";
         }
     }
 ?>
