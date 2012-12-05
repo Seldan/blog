@@ -21,13 +21,16 @@ require_once "inc/comments.inc.php";
 <?php
             //connect Mysql
             $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
+            if (mysqli_connect_errno()) {
+                echo "Error connecting to database.";
+            }
             //number of posts
             $entrynumber = mysqli_fetch_assoc(mysqli_query($db, "SELECT COUNT(*) FROM entry;"));
             $entries = $entrynumber['COUNT(*)'];
             //get post resource
             $res = mysqli_query($db, "SELECT * FROM entry ORDER BY datetime DESC;");
             $i = 0;
-            if (!$entries) {
+            if (!$entries && !mysqli_connect_errno()) { //mysqli_connect_errno <--- only print if connected to db
                 echo "<p>Sorry, no content on this blog yet. Maybe come back another time.</p>";
             }
             while (($i < 10) && ($i < $entries)) {
