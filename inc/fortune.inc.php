@@ -1,7 +1,6 @@
 <?php
-	function fortune($fortunes) {
-		/*returns a random fortune*/
-		$ret = $fortunes[rand(0, count($fortunes)-1)];
-		return $ret;
-	}
+    function fortune($fortunes) {
+        /*returns a random fortune*/
+        return $fortunes[rand(0, count($fortunes)-1)];
+    }
 ?>

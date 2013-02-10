@@ -13,27 +13,32 @@ require_once "inc/comments.inc.php";
 </head>
 <body>
     <div id="container">
-        <?php include "header.php"; ?>
+<?php    include "header.php"; ?>
         <div id="bar"><a href="admin.php">admin</a> | <a href="archive.php">archive</a></div>
         <div id="content">
         <!-- SCRIPT GENERATRED -->
-
 <?php
             //connect Mysql
             $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
             if (mysqli_connect_errno()) {
-                echo "Error connecting to database.";
+                echo "<p>Error connecting to database.</p>";
             }
             //number of posts
-            $entrynumber = mysqli_fetch_assoc(mysqli_query($db, "SELECT COUNT(*) FROM entry;"));
-            $entries = $entrynumber['COUNT(*)'];
+            // TODO improve mysql error handling
+            $res = mysqli_query($db, "SELECT COUNT(*) FROM entry;");
+            if (!($res == NULL)) {
+                $entrynumber = mysqli_fetch_assoc($res);
+                $entries = $entrynumber['COUNT(*)'];
+            } else {
+                echo "Database error, try again or contact the site admin.";
+                goto end;
+            }
             //get post resource
             $res = mysqli_query($db, "SELECT * FROM entry ORDER BY datetime DESC;");
-            $i = 0;
             if (!$entries && !mysqli_connect_errno()) { //mysqli_connect_errno <--- only print if connected to db
                 echo "<p>Sorry, no content on this blog yet. Maybe come back another time.</p>";
             }
-            while (($i < 10) && ($i < $entries)) {
+            for ($i = 0; ($i < 10) && ($i < $entries); $i++) {
                 $entry = mysqli_fetch_assoc($res);
                 echo "<h2><a href=\"show.php?id=".$entry["id"]."\">".$entry["title"]."</a></h2>\n";
                 echo "<p>\n";
@@ -56,15 +61,14 @@ require_once "inc/comments.inc.php";
                     echo "<a href=\"show.php?id=".$entry["id"]."#comments\">$comments comments</a>";
                 }
                 echo "\n<hr />\n\n\n";
-                $i++;
             }
             if($entries > 10) {
                 echo "<p style=\"text-align:center;\"><a href=\"archive.php\">For older posts click here.</a></p><hr />\n";
             }
+            end:
 ?>
         </div>
         <?php include "footer.php"; ?>
-
         <!-- SCRIPT GENERATRED END -->
     </div>
 </body>

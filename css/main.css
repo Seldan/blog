@@ -2,17 +2,21 @@
 
 html {
     overflow-y: scroll;
+    height: 100%;
 }
 
 
-#body {
+body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 100%;
 }
 
 
+/*unique ids*/
 #container {
     width: 768px;
     margin: 0px auto;
+    background-color: #ffffff;
 }
 
 
@@ -23,9 +27,10 @@ html {
 
 #bar {
     width: 100%;
-    margin: 20px 0 5px 0;
+    padding: 20px 0 5px 0;
     text-align: center;
 }
+
 
 #content {
     width: 100%;
@@ -37,6 +42,8 @@ html {
     text-align: center;
 }
 
+
+/*reused classes*/
 
 .comment {
     background-color: #dddddd;

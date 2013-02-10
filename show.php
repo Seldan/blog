@@ -3,12 +3,17 @@ require_once "conf/main.conf.php";
 require_once "inc/comments.inc.php";
 
 //making sure title is set in every case
-$title = "ERROR";
+$title = "Error";
 if(!empty($_GET["id"])) {
     //make sure id is an integer
     $id = (int)$_GET["id"];
     //connect Mysql
     $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
+    $entrynumber = mysqli_fetch_assoc(mysqli_query($db, "SELECT COUNT(*) FROM entry WHERE id = $id;"));
+    $entries = $entrynumber['COUNT(*)'];
+    if ($entries == 0) {
+        goto notexisting;
+    }
     //get post resource
     $res = mysqli_query($db, "SELECT * FROM entry WHERE id = $id;");
     $entry = mysqli_fetch_assoc($res);
@@ -71,6 +76,10 @@ if(!empty($_GET["id"])) {
                 echo "<p style=\"text-align:center;\"><a href=\"index.php\">Go back</a></p><hr />";
             } else { 
                 echo "<p>Please specify a post ID!</p>";
+            }
+            if (0) {
+                notexisting:
+                    echo "<p>Post not existing!</p>";
             }
         ?>
         </div>
