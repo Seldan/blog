@@ -8,5 +8,4 @@
     } else {
         echo "<div id=footer>(c)".$site_name." 2011 - ".date("Y", time())." | \"".$codename."\" Ver. ".$version."-".$release."</div>\n";
     }
-
 ?>

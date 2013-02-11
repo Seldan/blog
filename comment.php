@@ -51,5 +51,4 @@ echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name
 echo "<input type=email name='mail' placeholder='mail' /> ";
 echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
 echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea></form><br />";
-
 ?>
