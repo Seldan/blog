@@ -72,7 +72,7 @@ if (!empty($_SESSION['admin'])) {
             echo 'Sorry, there is such action!';
             break;
     } 
-    echo '<a style="float: right;" href="?action=logout">logout</a>';
+    echo '<div style="float: right;"><a href="index.php">back</a> | <a href="?action=logout">logout</a></div>';
 }
         ?>
 

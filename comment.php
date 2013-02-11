@@ -11,7 +11,7 @@ if(array_pop($p) == 'comment.php') {
     /*VALIDATE IF THERE IS A POST WITH THIS ID*/
     $res = mysqli_query($db, "SELECT * FROM entry WHERE id=$pid");
     if(mysqli_num_rows($res) != 1) {
-        exit("Sorry, you cannot comment something not even existing.");
+        exit("Sorry, you cannot comment on something not even existing.");
     }
     $datetime = date('Y-m-d H:i:s', time());
     $name = htmlentities($_POST["name"], ENT_HTML5);
