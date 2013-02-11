@@ -13,7 +13,7 @@
     /*Version*/
     $codename   = "SquidGirl";
     $version    = "0.9.4";
-    $release    = "alpha";
+    $release    = "beta";
 
     /*Your personal configs here*/
     $site_name      = "Seldan's Blog";
