@@ -43,7 +43,7 @@ if (empty($_SESSION['admin'])){ //not authenticated, ask for password
             echo 'Access denied!';
         }
     } else { //show login form
-        echo '<form method="post"><div style="text-align: center;" class="input-append"><input type=password name="password" placeholder="Password" size=20 /> <input name="login" type="submit" class="btn btn-inverse" /></div></form>';
+        echo '<form method="post"><div style="text-align: center;" class="input-append"><input type=password name="password" placeholder="Password" size=20 /> <input name="login" value="login" type="submit" class="btn btn-inverse" /></div></form>';
     }
 }
 if (!empty($_SESSION['admin'])) {

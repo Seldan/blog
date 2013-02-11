@@ -1,6 +1,6 @@
 <?php
     if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
-    echo "Delete comment: <form method=\"post\"><div style=\"text-align: center;\" class=\"input-append\"><input type=text name=\"id\" placeholder=\"ID\" size=20 /> <input name=\"delete\" type=\"submit\" class=\"btn btn-inverse\" /></div></form>";
+    echo "Delete comment: <form method=\"post\"><div style=\"text-align: center;\" class=\"input-append\"><input type=text name=\"id\" placeholder=\"ID\" size=20 /> <input name=\"delete\" value=\"delete\" type=\"submit\" class=\"btn btn-inverse\" /></div></form>";
 
     require "conf/main.conf.php";
     $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
