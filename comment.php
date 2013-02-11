@@ -2,13 +2,6 @@
 require_once "conf/main.conf.php";
 require_once "inc/comments.inc.php";
 
-if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
-echo "<form method='POST' action='comment.php'><input name='pid' value='$id' type='hidden' /><br />\n";
-echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name='name' placeholder='name' /> ";
-echo "<input type=email name='mail' placeholder='mail' /> ";
-echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
-echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea></form><br />";
-
 $p = explode("/", $_SERVER['SCRIPT_FILENAME']);
 if(array_pop($p) == 'comment.php') {
     /*Validate comment*/
@@ -51,4 +44,12 @@ if(array_pop($p) == 'comment.php') {
         /*echo "posted comment";*/
     }
 }
+
+if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
+echo "<form method='POST' action='comment.php'><input name='pid' value='$id' type='hidden' /><br />\n";
+echo "<div class='form-inline' style='margin-bottom: 6px;'><input type=text name='name' placeholder='name' /> ";
+echo "<input type=email name='mail' placeholder='mail' /> ";
+echo "<input type=url name='www' placeholder='www' /> <input name='post' type='submit' class=\"btn btn-inverse\" value=\"Post\"></div>";
+echo "<textarea name='content' placeholder='comment here!' style='width:99%; max-width:99%;'></textarea></form><br />";
+
 ?>
