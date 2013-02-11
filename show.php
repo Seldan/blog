@@ -14,11 +14,13 @@ if(!empty($_GET["id"])) {
     if ($entries == 0) {
         goto notexisting;
     }
-    //get post resource
+    //get post resource, we need to the title here
     $res = mysqli_query($db, "SELECT * FROM entry WHERE id = $id;");
     $entry = mysqli_fetch_assoc($res);
     //set title
     $title = $entry["title"];
+    //update views
+    mysqli_query($db, "UPDATE entry SET views = views+1 WHERE id = $id");
 }
 ?>
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ if(!empty($_GET["id"])) {
 <body>
     <div id="container">
         <?php include "header.php"; ?>
-        <div id="bar"><a href="admin.php">admin</a> | <a href="archive.php">archive</a></div>
+        <div id="bar"><a href="admin.php">admin</a> | <a href="index.php">index</a> | <a href="archive.php">archive</a></div>
         <div id="content">
         <?php
             if(isset($id)) {
@@ -43,6 +45,8 @@ if(!empty($_GET["id"])) {
                 echo "From: ".$entry["name"];
                 echo "<br />\n";
                 echo "Date: ".$entry["datetime"];
+                echo "<br />\n";
+                echo "Views: ".($entry["views"]+1); //remember, views were loaded before we increased them!
                 echo "<br />\n<br />\n";
                 echo $entry["content"];
                 echo "</p>\n";
@@ -85,6 +89,5 @@ if(!empty($_GET["id"])) {
         </div>
         <?php include "footer.php"; ?>
     </div>
-
 </body>
 </html>

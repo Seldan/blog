@@ -3,8 +3,8 @@ CREATE TABLE entry (
   name varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   datetime datetime NOT NULL,
   title varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  content text COLLATE utf8_unicode_ci,
-  views int(32) UNSIGNED,
+  content text COLLATE utf8_unicode_ci NOT NULL,
+  views int(32) UNSIGNED NOT NULL,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

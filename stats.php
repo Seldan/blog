@@ -10,6 +10,10 @@ if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
     $sql = "SELECT * FROM entry";
     $posts = mysqli_num_rows(mysqli_query($db, $sql));
     echo "Posts: ".$posts."<br />\n";
+    //get views
+    $sql = "SELECT SUM(views) FROM entry";
+    $views = mysqli_fetch_assoc(mysqli_query($db, $sql));
+    echo "Views: ".$views['SUM(views)']."<br />\n";
     //get number of comments
     $sql = "SELECT * FROM comment";
     $comments = mysqli_num_rows(mysqli_query($db, $sql));
@@ -24,5 +28,4 @@ if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
         }
         echo "orphaned comments removed";
     }
-    //var_dump($dead_comments);
 ?>
