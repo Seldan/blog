@@ -17,7 +17,7 @@
 
     /*Your personal configs here*/
     $site_name      = "Seldan's Blog";
-    $site_url       = "http://10.0.0.2/blog";
+    $site_url       = "http://saori.local/blog";
 
     /*header settings*/
     $header_show = 0;

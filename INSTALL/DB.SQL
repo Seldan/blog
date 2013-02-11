@@ -4,6 +4,7 @@ CREATE TABLE entry (
   datetime datetime NOT NULL,
   title varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   content text COLLATE utf8_unicode_ci,
+  views int(32) UNSIGNED,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
