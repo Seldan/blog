@@ -13,18 +13,20 @@ Seldan's Blog Software or short just blog is a simple blogging software.
 
 ## Installation ##
 
-### 1. edit conf ###
-at first edit the `conf/main.conf.php` configuration file and then add fortunes to `conf/fortune.conf.php`.
+### 1. edit configuration ###
+    1. edit the `conf/main.conf.php` configuration file 
+    2. (optional) add fortunes to `conf/fortune.conf.php`.
 
 ### 2. database ###
-dump the empty DB with the install scripts in `INSTALL`.
+    - execute installscript in `INSTALL`.
 
 ### 3. finish ###
-delete the `INSTALL` folder.
+    - delete the `INSTALL` folder.
 
 ### 4. have fun! ###
 
-PS: dont use this in a productive enviroment ever!
+PS: I am not responsible for any damages, data losses, etc. 
+to you or your computer caused by this software.
 
 ## Open Source Projects used: ##
 
