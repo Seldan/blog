@@ -18,10 +18,25 @@
     }
 
     //list posts
-    $sql = "SELECT id,title FROM entry;";
+    echo "<table border=\"1\">";
+    echo <<<EOF
+            <tr>
+                <th>id</th>
+                <th>datetime</th>
+                <th>content</th>
+            </tr>
+EOF;
+    $sql = "SELECT id,datetime,title FROM entry;";
     $res = mysqli_query($db, $sql);
     while($post = mysqli_fetch_assoc($res)) {
-        var_dump($post);
-        echo "<br />\n";
+        echo <<<EOF
+            <tr>
+                <td>$post[id]</td>
+                <td>$post[datetime]</td>
+                <td>$post[title]</td>
+            </tr>
+EOF;
     }
+
+    echo "</table>";
 ?>
