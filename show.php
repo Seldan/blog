@@ -64,7 +64,7 @@ if(!empty($_GET["id"])) {
                         echo "mail: <a href=mailto:".$comment["mail"].">".$comment["mail"]."</a>"." ";
                     }
                     if (!empty($comment["www"])) {
-                        echo "www: <a href='".$comment["www"]."'>".$comment["www"]."</a><br />";
+                        echo "www: <a href='".$comment["www"]."' target='_blank'>".$comment["www"]."</a><br />";
                     }
                     echo "<p>".$comment["content"]."</p>";
                     echo "</div>";
