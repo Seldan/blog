@@ -24,7 +24,7 @@
                 <th>id</th>
                 <th>datetime</th>
                 <th>content</th>
-            </tr>
+            </tr>\n
 EOF;
     $sql = "SELECT id,datetime,title FROM entry;";
     $res = mysqli_query($db, $sql);
@@ -34,7 +34,7 @@ EOF;
                 <td>$post[id]</td>
                 <td>$post[datetime]</td>
                 <td>$post[title]</td>
-            </tr>
+            </tr>\n
 EOF;
     }
 
