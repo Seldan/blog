@@ -35,13 +35,16 @@ if(array_pop($p) == 'comment.php') {
     if ($res == 0) {
         echo "Sorry, an error occured while posting your comment.";
     } else {
+        /* //unkomment for old redirection style
         if (empty($_SERVER['HTTP_REFERER'])) {
             echo "You did not transfer a referer, please go back manually.";
             exit();
         }
         header ('HTTP/1.1 307 Temporary Redirect');
         header ('Location: '.$_SERVER['HTTP_REFERER']);
-        /*echo "posted comment";*/
+        */
+        header ('HTTP/1.1 307 Temporary Redirect');
+        header ('Location: '.$site_url.'/show.php?id='.$_POST["pid"]);
     }
 }
 
