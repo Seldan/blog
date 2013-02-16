@@ -12,16 +12,16 @@
 
     /*Version*/
     $codename   = "SquidGirl";
-    $version    = "0.9.4";
-    $release    = "release";
+    $version    = "0.9.5";
+    $release    = "alpha";
 
     /*Your personal configs here*/
     $site_name      = "Seldan's Blog";
     $site_url       = "http://saori.local/blog";
 
     /*header settings*/
-    $header_show = 0;
-    $header_url  = "img/header.jpg";
+    $header_show = 1;
+    $header_url  = "img/header.png";
 
     /*enable fortunes*/
     $show_fortunes = 0;
