@@ -7,23 +7,25 @@ if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
 require_once "conf/main.conf.php";
 ?>
     <form method="post" name="post">
-        <!--<input name="datetime" type="datetime" />-->
-        <input name="title" placeholder="Enter a nice title here..." size=30 type=text /><br />
-        Date 'n' Time: <input name="date" type="date" size=9 value=<?php echo date('Y-m-d', time());?> />
-        <input name="time" type="timde" size=4 value=<?php echo date('H:i:s', time());?> />
-        <input name="user" placeholder="Wanna post under a different name?" size=30 type=text /><br />
-        <textarea name="content" placeholder="Only thing left is to enter some nice text, huh? Oh, and you can use HTML!" rows=10 cols=80></textarea><br />
-        <input type="hidden" name="post" value=true />
-        <input type="submit" value="Post" /><br />
+        <input name="title" placeholder="Title" style="width:99%; max-width:99%;" type="text" /><br />
+        Date and time: <input name="date" type="date" size=9 value=<?php echo date('Y-m-d', time());?> />
+        <input name="time" type="text" size=4 value=<?php echo date('H:i:s', time());?> />
+        <input name="user" placeholder="Name" size=30 type=text /><br />
+        <textarea name="content" placeholder="Content. Use of HTML is possible." style="width:99%; max-width:99%;" rows="10" ></textarea><br />
+        <input type="hidden" name="post" value="true" />
+        <input type="submit" value="post" class="btn btn-inverse" /><br />
     </form>
 <?php
     if (isset($_POST["post"])) {
         if ($_POST["post"] == TRUE) {
             $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
             $name = $_POST["user"];
+            if(empty($name)) {
+                $name = "Anonymous";
+            }
             $title = $_POST["title"];
             if(empty($title)) {
-                exit("Please enter a title"); //require title
+                exit("Please enter a title");
             }
             $date = $_POST["date"];
             $time = $_POST["time"];
