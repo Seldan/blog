@@ -11,9 +11,6 @@ if(!empty($_GET["id"])) {
     $db = mysqli_connect($db_host, $db_user, $db_pw, $db_db);
     $entrynumber = mysqli_fetch_assoc(mysqli_query($db, "SELECT COUNT(*) FROM entry WHERE id = $id;"));
     $entries = $entrynumber['COUNT(*)'];
-    if ($entries == 0) {
-        goto notexisting;
-    }
     //get post resource, we need to the title here
     $res = mysqli_query($db, "SELECT * FROM entry WHERE id = $id;");
     $entry = mysqli_fetch_assoc($res);
@@ -38,7 +35,7 @@ if(!empty($_GET["id"])) {
         <div id="bar"><a href="admin.php">admin</a> | <a href="index.php">index</a> | <a href="archive.php">archive</a></div>
         <div id="content">
         <?php
-            if(isset($id)) {
+            if(isset($entry)) {
                 //print post
                 echo "<h2><a href=\"show.php?id=".$entry["id"]."\">".$entry["title"]."</a></h2>";
                 echo "<p>\n";
@@ -78,12 +75,10 @@ if(!empty($_GET["id"])) {
                 require "./comment.php";
                 echo "<hr />";
                 echo "<p style=\"text-align:center;\"><a href=\"index.php\">Go back</a></p><hr />";
+            } else if ($entries == 0) {
+                echo "<p>Post not existing!</p>";
             } else { 
                 echo "<p>Please specify a post ID!</p>";
-            }
-            if (0) {
-                notexisting:
-                    echo "<p>Post not existing!</p>";
             }
         ?>
         </div>

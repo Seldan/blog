@@ -55,9 +55,6 @@ if (!empty($_SESSION['admin'])) {
         case 'stats':
             require 'stats.php';
             break;
-        case 'debug':
-            require 'debug.php';
-            break;
         case 'removedeadcomments':
             $kill = 'yes';
             require 'stats.php';
@@ -67,6 +64,12 @@ if (!empty($_SESSION['admin'])) {
             break;
         case 'manageposts':
             require 'manageposts.php';
+            break;
+        case 'edit':
+            require 'edit.php';
+            break;
+        case 'debug':
+            require 'debug.php';
             break;
         default:
             echo 'Sorry, there is such action!';
