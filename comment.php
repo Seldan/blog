@@ -14,22 +14,24 @@ if(array_pop($p) == 'comment.php') {
         exit("Sorry, you cannot comment on something not even existing.");
     }
     $datetime = date('Y-m-d H:i:s', time());
-    $name = htmlentities($_POST["name"], ENT_HTML5);
+    $name = mysqli_real_escape_string($db, htmlentities($_POST["name"], ENT_HTML5));
     if (empty($name)) {
         $name = "Anonymous";
     }
-    $www = strip_tags($_POST["www"]);
-    $mail = strip_tags($_POST["mail"]);
+    $www = mysqli_real_escape_string($db, strip_tags($_POST["www"]));
+    $mail = mysqli_real_escape_string($db, strip_tags($_POST["mail"]));
     if (empty($_POST["content"])) {
         echo "please enter a comment.";
         exit();
     }
-    $content = nl2br(htmlentities($_POST["content"], ENT_HTML5));
+    $content = mysqli_real_escape_string($db, nl2br(htmlentities($_POST["content"], ENT_HTML5)));
     if (mb_strlen($content, 'UTF8') > 3500) {
         echo "It said: \"comment this post:\" not \"Write a book about it.\"\n<br />Anyways, maximum comment length exceeded.";
         exit();
     }
     /*post comment to DB*/
+    echo "INSERT INTO comment (id,pid,datetime,name,www,mail,content) 
+        VALUES ('','$pid','$datetime','$name','$www','$mail','$content');";
     $res = mysqli_query($db, "INSERT INTO comment (id,pid,datetime,name,www,mail,content) 
         VALUES ('','$pid','$datetime','$name','$www','$mail','$content');");
     if ($res == 0) {
