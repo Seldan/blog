@@ -7,27 +7,37 @@ Seldan's Blog Software or short just blog is a simple blogging software.
 
 ## Prerequisites ##
 
- - MySQL
- - PHP
- - Some Webserver
+ - MySQL 
+ - PHP5.4 (older versions may or may not work.)
+ - Some Webserver (I use nginx for testing, but apache works fine, too.)
 
 ## Installation ##
 
-### 1. edit configuration ###
-    1. edit the `conf/main.conf.php` configuration file 
-    2. (optional) add fortunes to `conf/fortune.conf.php`.
+### 1. Edit configuration ###
+- edit the `conf/main.conf.php` configuration file.
 
-### 2. database ###
-    - execute installscript in `INSTALL`.
+__(the next two steps are optional.)__
+- add fortunes to `conf/fortune.conf.php`.
+- Add an header image for your blog.
 
-### 3. finish ###
-    - delete the `INSTALL` folder.
+### 2. Database ###
+- execute installscript in `INSTALL`.
 
-### 4. have fun! ###
+### 3. Finish ###
+- delete the `INSTALL` folder.
+
+### 4. Have (a lot of) fun! ###
 
 PS: I am not responsible for any damages, data losses, etc. 
-to you or your computer caused by this software.
+to you or your computer caused by using this software.
 
 ## Open Source Projects used: ##
 
 [bootstrap](http://twitter.github.com/bootstrap/)
+
+## License ##
+
+I have not decided whether to use a copyleft licence or not. 
+So until I decide please submit any changes you made and accept 
+them to be licensed under any Free Software license. 
+Only thing that is sure is, that it will be something very permissive.
