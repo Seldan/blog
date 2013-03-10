@@ -10,6 +10,6 @@ function pw_hash($pw) {
     }
     return $pw;
 }
-echo "<form method='post' ><input name='password' /><input type='submit' /></form>";
+echo "<form method='post' ><input name='password' placeholder='Hash password' /><input type='submit' /></form>";
 if (!empty($_POST["password"])) {echo pw_hash($_POST["password"]);}
 ?>

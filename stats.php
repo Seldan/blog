@@ -20,12 +20,12 @@ if ( basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"]) ) { exit(); }
     echo "Comments: ".$comments."<br />\n";
     //get dead comments
     $dead_comments = get_dead_comments();
-    echo "Orphaned comments: ".count($dead_comments)." <a href=\"?action=removedeadcomments\">remove dead comments</a>"."<br />\n"; 
+    echo "Orphaned comments: ".count($dead_comments)." <a href=\"?action=removedeadcomments\">remove orphaned comments</a>"."<br />\n"; 
     if (isset($kill)) {
         foreach ($dead_comments as $id) {
             $sql = "DELETE FROM comment WHERE id = $id";
             mysqli_query($db, $sql);
         }
-        echo "orphaned comments removed";
+        echo "Orphaned comments removed";
     }
 ?>
